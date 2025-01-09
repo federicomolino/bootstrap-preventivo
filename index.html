@@ -32,9 +32,85 @@
             </nav>
       </header>
 
-      <main>
-        
-      </main>
+      <main>  
+        <div class="container mt-2">
+
+            <div class="row mt-4 align-items-start">
+
+                <div class="col-md-8">
+                    <h1 class="h2 mb-2">Richiesta Preventivo</h1>
+                        <p>Compila il form per richiedere un proventivo per i nostri servi di sviluppo.</p>
+                        <form class="row g-3">
+                            <!--Faccio inserire Nome-->
+                            <div>
+                                <label for="nameInput" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nameInput">
+                            </div>
+                            <!--Faccio inserire Cognome-->
+                            <div>
+                                <label for="surnameInput" class="form-label">Cognome</label>
+                                <input type="text" class="form-control" id="surnameInput">
+                            </div>
+                            <!--Faccio inserire Email obbligatoria-->
+                            <div>
+                                <label for="emailInput" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="emailInput" required>
+                            </div>
+                            <!--Seleziona tipo di lavoro-->
+                            <div>
+                                <label for="selectjob" class="form-label">Tipo di Lavoro</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Seleziona il tipo di lavoro</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <!--note-->
+                            <div>
+                                <label for="exampleFormControlTextarea1" class="form-label">Textarea con Bootstrap 5</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <!--Codice Promozionale-->
+                            <div>
+                                <label for="nameInput" class="form-label">Codice Promozionale (opzionale)</label>
+                                <input type="text" class="form-control" id="nameInput">
+                            </div>
+                            <!--Policy obbligatorio-->
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                                <label class="form-check-label" for="flexCheckDefault">Accetto la Privacy Pollicy</label>
+                            </div>
+
+                            <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-around align-items-center">
+                                <button type="button" class="btn btn-primary mb-3">Calcola Preventivo</button>
+                                <div class="text-center">
+                                    <h5>Prezzo Finale</h5>
+                                    <b>€200,00</b>
+                                </div>
+                            </div>
+                        </form>
+                </div>
+
+                        <!--Card cotantti-->
+                        <div class="d-flex justify-content-center mt-4 col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="./img/img.jpeg" alt="immagine esempio">
+                                <div class="card-body">
+                                <h5 class="card-title">I nostri contatti</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Se hai bisogno di aiuto puoi contattarci.</li>
+                                    <li class="list-group-item">hel@boolfactory.test</li>
+                                    <li class="list-group-item">+1122334455</li>
+                                    <li class="list-group-item"><a href="#">Help desk</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                      
+            </div>
+        </div>
+    </main>
     <script src="./main/main.js"></script>
 </body>
 </html>
