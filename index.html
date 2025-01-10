@@ -31,9 +31,10 @@
               </div>  
             </nav>
       </header>
-
-      <main>  
-        <div class="container mt-2">
+      <!--tutto il main in una colonna flessibile-->
+      <main class="d-flex flex-column"> 
+        <!--faccio "crescere" per fargli occupare tutto lo spazio a disposizione --> 
+        <div class="container mt-2 flex-grow-1">
 
             <div class="row mt-4 align-items-start">
 
@@ -82,11 +83,11 @@
                                 <label class="form-check-label" for="flexCheckDefault">Accetto la Privacy Pollicy</label>
                             </div>
 
-                            <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-around align-items-center">
+                            <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-around align-items-center mt-3">
                                 <button type="button" class="btn btn-primary mb-3">Calcola Preventivo</button>
                                 <div class="text-center">
                                     <h5>Prezzo Finale</h5>
-                                    <b>€200,00</b>
+                                    <b class="fs-5">€200,00</b>
                                 </div>
                             </div>
                         </form>
@@ -110,8 +111,9 @@
             </div>
         </div>
     </main>
+    <!--footer-->
     <footer>
-        <div class="text-center py-3 bg-dark text-white mt-2 fixed-bottom">
+        <div class="text-center py-3 bg-dark text-white mt-3 ">
           <p class="mb-0">© 2024 - Tutti i diritti riservati</p>
         </div>
     </footer>
