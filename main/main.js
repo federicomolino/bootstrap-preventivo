@@ -88,29 +88,27 @@ submitButton.addEventListener("click", function (event) {
         const jobSelectInput = selectInput.value;        
         totalPriceJob(jobSelectInput);
         
-        //verifico se il codice inserito dall'utente è presente.
-        for (let i = 0; i < codeScount.length; i++) {
+        const utentPromotialCode = promotinalCodeInput.value;
 
-            const utentPromotialCode = promotinalCodeInput.value;
-            const elementArray = codeScount[i];
+        //tolgo le classi in caso non venga inserite in precedenza se non viene inserito codiceSconto
+        if (utentPromotialCode.trim() ==='') {
+            promotinalCodeInput.classList.remove("is-invalid", "is-valid");
+            notValidInsertCode.classList.add("d-none");
+            console.log(utentPromotialCode)
 
-            /*verifico che il campo sia compilato, se quanto inserito dall'utente è
-            uguale a quello dell'array e richiamo funzione per lo sconto*/
-            if (utentPromotialCode === elementArray){
-                promotinalCodeInput.classList.add("is-valid");
-                promotinalCodeInput.classList.remove("is-invalid");
-                notValidInsertCode.classList.add("d-none");
-                totalPriceScount(utentPromotialCode);
-            }else if(utentPromotialCode.trim() === ''){
-                promotinalCodeInput.classList.remove("is-invalid", "is-valid");
-                notValidInsertCode.classList.add("d-none");
-            }else{
-                promotinalCodeInput.classList.add("is-invalid");
-                notValidInsertCode.classList.remove("d-none");
-
-            }
+        //verifico se il codiceSconto inserito è presente nell'array e richiamo funzione per calcolo
+        }else if (codeScount.includes(utentPromotialCode)) {
+            promotinalCodeInput.classList.remove("is-invalid");
+            promotinalCodeInput.classList.add("is-valid");
+            notValidInsertCode.classList.add("d-none");
+            totalPriceScount(utentPromotialCode);
+        }else{
+            //codiceSconto errato
+            promotinalCodeInput.classList.remove("is-valid");
+            promotinalCodeInput.classList.add("is-invalid");
+            notValidInsertCode.classList.remove("d-none");
         }
+
         spinnerButton.classList.toggle('d-none');
     }, 1500);
-    
 });
