@@ -19,7 +19,7 @@ let totalPrice = 0;
 //array contentente i codici sconto
 const codeScount = ['YHDNU32','JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24']
 
-function isValid(checkIsValid) {
+function isValid(checkIsValid, isValidCheckbox) {
     //tolgo eventuali spazi (trim()) e verifico se è stato inserito qualcosa 
     if (checkIsValid.value.trim() !== "") {
         checkIsValid.classList.add("is-valid");
@@ -27,6 +27,15 @@ function isValid(checkIsValid) {
     } else {
         checkIsValid.classList.add("is-invalid");
         checkIsValid.classList.remove("is-valid");
+    }
+
+    const isCheckboxValid = isValidCheckbox.checked;
+    //verifico che il check sia ok, se no blocco e mando in errore.
+    if (!isCheckboxValid) {
+        checkboxFlag.classList.add("is-invalid");
+        return;
+    }else{
+        checkboxFlag.classList.remove("is-invalid");
     }
 }
 
@@ -97,6 +106,7 @@ submitButton.addEventListener("click", function (event) {
     isValid(nameInput);
     isValid(surnameInput);
     isValid(selectInput);
+    isValid(null,checkboxFlag);
 
     const isValidEmailInput = emailInput.value;
 
@@ -109,14 +119,6 @@ submitButton.addEventListener("click", function (event) {
         emailInput.classList.remove("is-invalid");
         emailInput.classList.add("is-valid");
         notValidInsertMail.classList.add("d-none");
-    }
-
-    //verifico se la checkbox è stata fleggata, se non flaggata blocco.
-    if (!checkboxFlag.checked) {
-        checkboxFlag.classList.add("is-invalid");
-        return;
-    }else{
-        checkboxFlag.classList.remove("is-invalid");
     }
 
     spinnerButton.classList.toggle("d-none");
