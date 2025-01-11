@@ -8,6 +8,7 @@ const checkboxFlag = document.getElementById("checkboxFlag");
 const finalPriceOutput = document.getElementById("finalPriceOutput");
 const spinnerButton = document.getElementById("spinnerButton");
 const notValidInsertCode = document.getElementById("notValidInsertCode");
+const notValidInsertMail = document.getElementById("notValidInsertMail");
 
 //ore fisse
 const hours = 10;
@@ -28,6 +29,7 @@ function isValid(checkIsValid) {
         checkIsValid.classList.remove("is-valid");
     }
 }
+
 
 function totalPriceJob(scount){
     const choiceJobInputValue = scount
@@ -71,8 +73,20 @@ submitButton.addEventListener("click", function (event) {
     // Verifica validità per ogni campo
     isValid(nameInput);
     isValid(surnameInput);
-    isValid(emailInput);
     isValid(selectInput);
+
+    const isValidEmailInput = emailInput.value;
+
+    //verifico che la validità della mail!
+    if(!isValidEmailInput.includes('@')){
+        emailInput.classList.add("is-invalid");
+        notValidInsertMail.classList.remove("d-none")
+        return
+    }else{
+        emailInput.classList.remove("is-invalid");
+        emailInput.classList.add("is-valid")
+        notValidInsertMail.classList.add("d-none")
+    }
 
     //verifico se la checkbox è stata fleggata, se non flaggata blocco.
     if (!checkboxFlag.checked) {
@@ -82,7 +96,7 @@ submitButton.addEventListener("click", function (event) {
         checkboxFlag.classList.remove("is-invalid");
     }
 
-    spinnerButton.classList.toggle('d-none');
+    spinnerButton.classList.toggle("d-none");
     setTimeout(() => {
         //assegno alla variabile la selezione dell'utente
         const jobSelectInput = selectInput.value;        
