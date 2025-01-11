@@ -30,7 +30,6 @@ function isValid(checkIsValid) {
     }
 }
 
-
 function totalPriceJob(scount){
     const choiceJobInputValue = scount;
 
@@ -71,6 +70,26 @@ function totalPriceScount(codeScount){
     finalPriceOutput.innerHTML = `€${finalPriceScount.toFixed(2)}`;
 }
 
+let selectOption = {
+    1: 'Backend Development',
+    2: 'Frontend Development',
+    3: 'Project Analysis Development'
+};
+
+for (const chiave in selectOption) {
+    //verifico che la chiave venga direttamente dall'oggeto (hasOwnProperty)
+    if (selectOption.hasOwnProperty(chiave)) {
+        //creo un nuovo elemento html 
+        const option = document.createElement('option');
+        //assegno all'elemtno creato la chiave dell'oggetto
+        option.value = chiave;
+        //stampo il contenuto associato alla chiave
+        option.textContent = selectOption[chiave];
+        //aggiungo l'opzione
+        selectInput.appendChild(option);
+    }
+}
+
 submitButton.addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -102,8 +121,9 @@ submitButton.addEventListener("click", function (event) {
 
     spinnerButton.classList.toggle("d-none");
     setTimeout(() => {
+        
         //assegno alla variabile la selezione dell'utente
-        const jobSelectInput = selectInput.value;        
+        const jobSelectInput = selectInput.value;   
         totalPriceJob(jobSelectInput);
         
         const utentPromotialCode = promotinalCodeInput.value;
