@@ -9,7 +9,7 @@ const finalPriceOutput = document.getElementById("finalPriceOutput");
 const spinnerButton = document.getElementById("spinnerButton");
 const notValidInsertCode = document.getElementById("notValidInsertCode");
 const notValidInsertMail = document.getElementById("notValidInsertMail");
-
+const outputInfoPrice = document.getElementById("outputInfoPrice");
 //ore fisse
 const hours = 10;
 
@@ -38,6 +38,7 @@ function totalPriceJob(scount){
         const priceJob = 21.50;
         //calcolo le ore fisse di lavoro con il prezzo fisso per il back
         totalPrice = (priceJob * hours).toFixed(2);
+        outputInfoPrice.innerHTML = `Prezzo Finale`;
         finalPriceOutput.innerHTML = `€${totalPrice}`;
         return totalPrice;
 
@@ -45,6 +46,7 @@ function totalPriceJob(scount){
         const priceJob = 15.30;
         //calcolo le ore fisse di lavoro con il prezzo fisso per il front
         totalPrice = (priceJob * hours).toFixed(2);
+        outputInfoPrice.innerHTML = `Prezzo Finale`;
         finalPriceOutput.innerHTML = `€${totalPrice}`;
         return totalPrice;
 
@@ -52,6 +54,7 @@ function totalPriceJob(scount){
         const priceJob = 33.60;
         //calcolo le ore fisse di lavoro con il prezzo fisso per il 
         totalPrice = (priceJob * hours).toFixed(2);
+        outputInfoPrice.innerHTML = `Prezzo Finale`;
         finalPriceOutput.innerHTML = `€${totalPrice}`;
         return totalPrice;
     }
@@ -64,6 +67,7 @@ function totalPriceScount(codeScount){
     //sconto fisso
     const discount = 25;
     const finalPriceScount = totalPrice - (totalPrice * discount / 100).toFixed(2);
+    outputInfoPrice.innerHTML = `Prezzo Finale Scontato del 25%`;
     finalPriceOutput.innerHTML = `€${finalPriceScount}`;
 }
 
