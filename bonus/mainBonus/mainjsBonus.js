@@ -104,7 +104,7 @@ submitButton.addEventListener("click", function (event) {
     if(!isValidEmailInput.includes('@') || !isValidEmailInput.includes('.')){
         emailInput.classList.add("is-invalid");
         notValidInsertMail.classList.remove("d-none");
-        return
+        return;
     }else{
         emailInput.classList.remove("is-invalid");
         emailInput.classList.add("is-valid");

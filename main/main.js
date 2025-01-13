@@ -20,15 +20,32 @@ let totalPrice = 0;
 const codeScount = ['YHDNU32','JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24']
 
 function isValid(checkIsValid) {
-
     //tolgo eventuali spazi (trim()) e verifico se è stato inserito qualcosa 
     if (checkIsValid.value.trim() !== "") {
         checkIsValid.classList.add("is-valid");
         checkIsValid.classList.remove("is-invalid");
-
+        return true;
     }else {
         checkIsValid.classList.add("is-invalid");
         checkIsValid.classList.remove("is-valid");
+        return false;
+    }
+
+
+}
+
+function isValidEmail(checkEmail){
+    const isValidEmailInput = checkEmail.value;
+    //verifico che la validità della mail!
+    if(!isValidEmailInput.includes('@') || !isValidEmailInput.includes('.')){
+        emailInput.classList.add("is-invalid");
+        notValidInsertMail.classList.remove("d-none");
+        return false;
+    }else{
+        emailInput.classList.remove("is-invalid");
+        emailInput.classList.add("is-valid");
+        notValidInsertMail.classList.add("d-none");
+        return true;
     }
 }
 
@@ -76,22 +93,16 @@ function totalPriceScount(codeScount){
 submitButton.addEventListener("click", function (event) {
     event.preventDefault();
 
-    // Verifica validità per ogni campo
-    isValid(nameInput);
+    // Verifica validità per ogni campo rendendo obbligatorio il nome!
+    if (!isValid(nameInput)){
+        return;
+    }
     isValid(surnameInput);
     isValid(selectInput);
 
-    const isValidEmailInput = emailInput.value;
-
-    //verifico che la validità della mail!
-    if(!isValidEmailInput.includes('@') || !isValidEmailInput.includes('.')){
-        emailInput.classList.add("is-invalid");
-        notValidInsertMail.classList.remove("d-none");
-        return
-    }else{
-        emailInput.classList.remove("is-invalid");
-        emailInput.classList.add("is-valid");
-        notValidInsertMail.classList.add("d-none");
+    //Verifico che il campo mail sia stato correttamente compilato
+    if(!isValidEmail(emailInput)){
+        return;
     }
 
     //verifico se la checkbox è stata fleggata, se non flaggata blocco.
