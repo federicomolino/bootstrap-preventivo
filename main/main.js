@@ -30,8 +30,6 @@ function isValid(checkIsValid) {
         checkIsValid.classList.remove("is-valid");
         return false;
     }
-
-
 }
 
 function isValidEmail(checkEmail){
@@ -93,12 +91,10 @@ function totalPriceScount(codeScount){
 submitButton.addEventListener("click", function (event) {
     event.preventDefault();
 
-    // Verifica validità per ogni campo rendendo obbligatorio il nome!
-    if (!isValid(nameInput)){
+    // Verifica validità per ogni campo rendendo obbligatorio
+    if (!isValid(nameInput) || !isValid(surnameInput) || isValid(selectInput)){
         return;
     }
-    isValid(surnameInput);
-    isValid(selectInput);
 
     //Verifico che il campo mail sia stato correttamente compilato
     if(!isValidEmail(emailInput)){
