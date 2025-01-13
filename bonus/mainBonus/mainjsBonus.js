@@ -109,7 +109,7 @@ submitButton.addEventListener("click", function (event) {
     event.preventDefault();
 
     // Verifica validità per ogni campo rendendo obbligatorio il nome!
-    if (!isValid(nameInput) || isValid(surnameInput) ||  isValid(selectInput)) {
+    if (!isValid(nameInput) || !isValid(surnameInput) || !isValid(selectInput)) {
         return;
     }
     
