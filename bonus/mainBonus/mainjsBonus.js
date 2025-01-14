@@ -45,6 +45,17 @@ function isValidEmail(checkEmail){
     }
 }
 
+function isValidCheckbox(checkInputBox) {
+    //verifico se la checkbox è stata fleggata
+    if (!checkInputBox.checked) {
+        checkboxFlag.classList.add("is-invalid");
+        return false;
+    }
+
+    checkboxFlag.classList.remove("is-invalid");
+    return true;
+}
+
 function totalPriceJob(scount){
     const choiceJobInputValue = scount;
 
@@ -118,12 +129,8 @@ submitButton.addEventListener("click", function (event) {
         return;
     }
 
-    //verifico se la checkbox è stata fleggata, se non flaggata blocco.
-    if (!checkboxFlag.checked) {
-        checkboxFlag.classList.add("is-invalid");
+    if (!isValidCheckbox(checkboxFlag)) {
         return;
-    }else{
-        checkboxFlag.classList.remove("is-invalid");
     }
 
     spinnerButton.classList.toggle("d-none");
