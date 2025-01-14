@@ -25,11 +25,11 @@ function isValid(checkIsValid) {
         checkIsValid.classList.add("is-valid");
         checkIsValid.classList.remove("is-invalid");
         return true;
-    }else {
-        checkIsValid.classList.add("is-invalid");
-        checkIsValid.classList.remove("is-valid");
-        return false;
     }
+    
+    checkIsValid.classList.add("is-invalid");
+    checkIsValid.classList.remove("is-valid");
+    return false;
 }
 
 function isValidEmail(checkEmail){
@@ -39,12 +39,23 @@ function isValidEmail(checkEmail){
         emailInput.classList.add("is-invalid");
         notValidInsertMail.classList.remove("d-none");
         return false;
-    }else{
-        emailInput.classList.remove("is-invalid");
-        emailInput.classList.add("is-valid");
-        notValidInsertMail.classList.add("d-none");
-        return true;
     }
+
+    emailInput.classList.remove("is-invalid");
+    emailInput.classList.add("is-valid");
+    notValidInsertMail.classList.add("d-none");
+    return true;
+}
+
+function isValidCheckbox(checkInputBox) {
+    //verifico se la checkbox è stata fleggata
+    if (!checkInputBox.checked) {
+        checkboxFlag.classList.add("is-invalid");
+        return false;
+    }
+
+    checkboxFlag.classList.remove("is-invalid");
+    return true;
 }
 
 
@@ -101,14 +112,10 @@ submitButton.addEventListener("click", function (event) {
         return;
     }
 
-    //verifico se la checkbox è stata fleggata, se non flaggata blocco.
-    if (!checkboxFlag.checked) {
-        checkboxFlag.classList.add("is-invalid");
+    //verifico che il campo checkbox è fleggato
+    if(!isValidCheckbox(checkboxFlag)){
         return;
-    }else{
-        checkboxFlag.classList.remove("is-invalid");
     }
-
 
     spinnerButton.classList.toggle("d-none");
     setTimeout(() => {
